@@ -38,11 +38,13 @@ body {
 }
 
 #subtitulo {
-    color: red;
+    color: rgb(255, 102, 0);
 }
 
 p {
     color: white;
+    
+
 }
 
 /* Imagen centrada y tamaño controlado */
@@ -56,6 +58,7 @@ img {
     display: flex;
     align-items: center;
     gap: 20px;
+    margin-left: 100px;
     /* separación entre texto e imagen */
     justify-content: space-between;
 }
@@ -86,4 +89,37 @@ img {
     margin-top: 40px;
     /* Separación del contenido */
     padding: 10px 0;
+}
+
+.carrusel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.carrusel img {
+    width: 300px;            /* tamaño uniforme */
+    height: 300px;           /* tamaño uniforme */
+    object-fit: contain;     /* mostrar imagen completa SIEMPRE */
+    background-color: rgba(255,255,255,0.1); 
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    padding: 10px;           /* separa la imagen del fondo */
+}
+
+.carrusel button {
+    font-size: 2rem;
+    padding: 10px 20px;
+    background-color: rgba(255,255,255,0.2);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+    transition: 0.3s;
+}
+
+.carrusel button:hover {
+    background-color: rgba(255,255,255,0.4);
 }

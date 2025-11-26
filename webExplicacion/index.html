@@ -10,7 +10,14 @@
 </head>
 
 <body>
-    <div class="caja">
+    <nav class="menu">
+        <a href="#inicio">Inicio</a>
+        <a href="#descripcion">Descripción</a>
+        <a href="#carrusel">Galería</a>
+        <a href="#footer">Contacto</a>
+        <a>Personajes</a>
+    </nav>
+    <div class="caja" id="inicio">
         <h1 id="titulo">Las Sombras de Arkanis</h1>
 
         <h2 id="subtitulo">¿De que trata?</h2>
@@ -18,7 +25,7 @@
         <p id="info">Las sombras de Arkanis es un proyecto que está en desarrollo por mi persona, el cual trata de un
             videojuego estilo jrpg de batallas por turnos 2D</p>
 
-        <div id="explicación">
+        <div id="explicación" id="descripcion">
             <div class="fila">
                 <p>
                     Aunque solo será una DEMO podría llegar a ser más, mi intención con este proyecto es aplicar los
@@ -46,17 +53,17 @@
 
 
         </div>
-        <div class="carrusel">
-        <button id="btnPrev">⟨</button>
+        <div class="carrusel" id="carrusel">
+            <button id="btnPrev">⟨</button>
 
-        <img id="imgCarrusel" src="./img/portada.png" alt="carrusel">
+            <img id="imgCarrusel" src="./img/portada.png" alt="carrusel">
 
-        <button id="btnNext">⟩</button>
+            <button id="btnNext">⟩</button>
+        </div>
     </div>
-    </div>
 
-    
-    <footer class="pie-pagina">
+
+    <footer class="pie-pagina" id="footer">
         &copy; 2025 Las Sombras de Arkanis | Creado: 26/11/2025 | Autor:Francisco Javier Rodríguez Calero
     </footer>
 </body>

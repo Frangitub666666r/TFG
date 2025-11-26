@@ -2,11 +2,15 @@ body {
     background-color: black;
     margin-top: 50px;
     padding: 0;
-      background-image: url('../img/portada.png'); /* Cambia por la ruta de tu imagen */
-    background-size: cover;       /* Ocupa todo el fondo */
-    background-position: center;  /* Centrado */
-    background-repeat: no-repeat; /* No se repita */
-    
+    background-image: url('../img/portada.png');
+    /* Cambia por la ruta de tu imagen */
+    background-size: cover;
+    /* Ocupa todo el fondo */
+    background-position: center;
+    /* Centrado */
+    background-repeat: no-repeat;
+    /* No se repita */
+
     font-family: Arial, sans-serif;
 }
 
@@ -43,7 +47,7 @@ body {
 
 p {
     color: white;
-    
+
 
 }
 
@@ -100,19 +104,23 @@ img {
 }
 
 .carrusel img {
-    width: 300px;            /* tamaño uniforme */
-    height: 300px;           /* tamaño uniforme */
-    object-fit: contain;     /* mostrar imagen completa SIEMPRE */
-    background-color: rgba(255,255,255,0.1); 
+    width: 300px;
+    /* tamaño uniforme */
+    height: 300px;
+    /* tamaño uniforme */
+    object-fit: contain;
+    /* mostrar imagen completa SIEMPRE */
+    background-color: rgba(255, 255, 255, 0.1);
     border-radius: 12px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.4);
-    padding: 10px;           /* separa la imagen del fondo */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    padding: 10px;
+    /* separa la imagen del fondo */
 }
 
 .carrusel button {
     font-size: 2rem;
     padding: 10px 20px;
-    background-color: rgba(255,255,255,0.2);
+    background-color: rgba(255, 255, 255, 0.2);
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -121,5 +129,39 @@ img {
 }
 
 .carrusel button:hover {
-    background-color: rgba(255,255,255,0.4);
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.menu {
+    position: fixed;
+    /* siempre visible */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(50, 50, 50, 0.9);
+    /* fondo semi-transparente */
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 10px 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    color: yellow;
+}
+
+/* Para que la caja no quede tapada por el menú */
+.caja {
+    padding-top: 60px;
+    /* suficiente espacio para menú fijo */
+    min-height: 100vh;
 }

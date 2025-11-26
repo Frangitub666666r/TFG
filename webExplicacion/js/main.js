@@ -2,8 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const imagenes = [
         "./img/portada.png",
-        "./img/godotLogo.png"
-
+        "./img/godotLogo.png",
+        "../imagenes/titus.png"
     ];
 
     let indice = 0;
@@ -40,7 +40,13 @@ document.addEventListener("DOMContentLoaded", () => {
             indice = 0;
         };
     });
-
+    document.querySelectorAll('.menu a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            target.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
 
 })
 

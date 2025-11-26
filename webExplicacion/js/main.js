@@ -48,6 +48,27 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+
+
+     const mainScreen = document.getElementById("mainScreen");
+    const personajesScreen = document.getElementById("personajesScreen");
+    const menuPersonajes = document.getElementById("menuPersonajes");
+    const listaPersonajes = document.getElementById("listaPersonajes");
+    const infoPersonaje = document.getElementById("infoPersonaje");
+
+    // Al pulsar "Personajes" en el menú
+    menuPersonajes.addEventListener("click", (e) => {
+        e.preventDefault();
+        mainScreen.style.display = "none";
+        personajesScreen.style.display = "block";
+    });
+
+    // Al pulsar un personaje de la lista
+    listaPersonajes.querySelectorAll("li").forEach(li => {
+        li.addEventListener("click", () => {
+            infoPersonaje.textContent = li.dataset.info;
+        });
+    });
 })
 
 

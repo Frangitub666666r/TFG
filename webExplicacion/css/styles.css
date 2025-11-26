@@ -1,9 +1,38 @@
 body {
-    background-color: gray;
-
-
+    background-color: black;
+    margin-top: 50px;
+    padding: 0;
+      background-image: url('../img/portada.png'); /* Cambia por la ruta de tu imagen */
+    background-size: cover;       /* Ocupa todo el fondo */
+    background-position: center;  /* Centrado */
+    background-repeat: no-repeat; /* No se repita */
+    
+    font-family: Arial, sans-serif;
 }
 
+/* Caja principal */
+.caja {
+    background-color: rgba(128, 128, 128, 0.6);
+    min-height: 100vh;
+    /* La caja ocupa toda la altura */
+    width: 80%;
+    /* Tamaño más agradable */
+    margin: 0 auto;
+    /* Centrar horizontal */
+    padding: 40px;
+    border-radius: 20px;
+    /* Más suave que 15% */
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+    /* Hace que sobresalga */
+    text-align: center;
+    /* Centrar texto e imágenes */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Centrar contenido verticalmente */
+}
+
+/* Colores de texto según tu estilo */
 #titulo {
     color: yellow;
 }
@@ -14,5 +43,47 @@ body {
 
 p {
     color: white;
+}
 
+/* Imagen centrada y tamaño controlado */
+img {
+    max-width: 200px;
+    display: block;
+    margin: 20px auto;
+}
+
+.fila {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    /* separación entre texto e imagen */
+    justify-content: space-between;
+}
+
+/* El texto debe ocupar el espacio disponible */
+.fila p {
+    flex: 1;
+    text-align: justify;
+    /* se ve más ordenado */
+}
+
+/* Imagen fija a la derecha */
+.fila img {
+    width: 180px;
+    /* ajustable */
+    flex-shrink: 0;
+    /* evita que la imagen se encoja */
+    border-radius: 10px;
+}
+
+.pie-pagina {
+    text-align: center;
+    /* Centrado */
+    font-size: 0.8rem;
+    /* Pequeño */
+    color: #ccc;
+    /* Gris claro para que no sobresalga demasiado */
+    margin-top: 40px;
+    /* Separación del contenido */
+    padding: 10px 0;
 }

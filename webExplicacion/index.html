@@ -14,7 +14,7 @@
     <!-- MENÚ SUPERIOR -->
     <nav class="menu">
         <a href="#inicio" id="menuInicio">Inicio</a>
-        <a href="#descripcion">Descripción</a>
+        <a href="#historia" id="menuHistoria">historia</a>
         <a href="#carrusel">Galería</a>
         <a href="#" id="menuPersonajes">Personajes</a>
         <a href="#footer">Contacto</a>
@@ -35,7 +35,7 @@
                 el cual trata de un videojuego estilo JRPG de batallas por turnos 2D.
             </p>
 
-            <div id="descripcion">
+            <divs>
                 <div class="fila">
 
                     <p>
@@ -55,16 +55,16 @@
                     en un pueblo, la interacción con el mismo, una mazmorra con dos tipos de
                     enemigos y un jefe.
                 </p>
-            </div>
-
-            <!-- CARRUSEL -->
-            <div class="carrusel" id="carrusel">
-                <button id="btnPrev">⟨</button>
-                <img id="imgCarrusel" src="./img/portada.png" alt="carrusel">
-                <button id="btnNext">⟩</button>
-            </div>
-
         </div>
+
+        <!-- CARRUSEL -->
+        <div class="carrusel" id="carrusel">
+            <button id="btnPrev">⟨</button>
+            <img id="imgCarrusel" src="./img/portada.png" alt="carrusel">
+            <button id="btnNext">⟩</button>
+        </div>
+
+    </div>
     </div>
 
 
@@ -75,17 +75,32 @@
         <!-- LISTA OCULTA / VISUALIZADA POR JS -->
         <ul id="listaPersonajes" style="display:block;">
             <li data-info="Un Enano barbaro con problemas de ira.">Titus&Nanus</li>
-            <li data-info="Un Warlock serio y justo con una lata sed de venganza">Urizen WoodNigths</li>
+            <li data-info="Un Warlock serio y justo con una alta sed de venganza">Urizen WoodNigths</li>
             <li data-info="Un bardo medio elfo que no sabe tocar su lira">Pepe el Bardo</li>
-             <li data-info="Un tiffling que no está muy bien de la cabeza">Alimentacius Luna</li>
-            <li data-info="Un Gnomo que está obsesionado con el dinero e ir desnudo">Neton el Gnomo Teton</li>
-            <li data-info="Un Draconido dorado que escupe fuego y factos">Koldor el estoico</li>
-            <li data-info="Un hipopotamo parlanchin con unas defensas por las nubes (El y Koldor no son familia)">MotoMoto Estoico</li>
+            <li data-info="Un tiffling hechicero que no está muy bien de la cabeza">Alimentacius Luna</li>
+            <li data-info="Un Gnomo druida que está obsesionado con el dinero e ir desnudo">Neton el Gnomo Teton</li>
+            <li data-info="Un Draconico dorado que escupe fuego y factos">Koldor el estoico</li>
+            <li
+                data-info="Un hipopotamo paladín y parlanchín con unas defensas por las nubes (El y Koldor no son familia)">
+                MotoMoto Estoico</li>
         </ul>
 
         <!-- INFORMACIÓN DEL PERSONAJE ELEGIDO -->
         <div id="infoPersonaje" style="display:none; margin-top:20px; color:white;"></div>
     </div>
+
+    <div class="caja" id="historiaScreen" style="display:none;">
+
+        <h2>historia</h2>
+
+
+        <p>La Historia comienza con los personajes encontrandose en una taberna, en la cual todos encuentran una
+            solicitud que les interesa, por lo que deciden ir juntos. no obstante estos no tenían ni idea de donde se
+            estaban metiendo.</p>
+        <p>Se encuentra en Selira una de las mayores ciudades de Arkanis</p>
+
+    </div>
+
 
 
     <!-- PIE DE PÁGINA -->

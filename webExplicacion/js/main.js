@@ -39,16 +39,17 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // =========================
-    // PANTALLA PERSONAJES / INICIO
-    // =========================
+    // =================================================
+    // PANTALLA: INICIO / HISTORIA / PERSONAJES
+    // =================================================
     const btnPersonajes = document.getElementById("menuPersonajes");
-    const btnInicio = document.querySelector("#menuInicio"); 
-
+    const btnInicio = document.querySelector("#menuInicio");
+    const btnHistoria = document.querySelector("#menuHistoria")
     const cajaInicio = document.getElementById("inicio");
     const personajesScreen = document.getElementById("personajesScreen");
     const listaPersonajes = document.getElementById("listaPersonajes");
     const infoPersonaje = document.getElementById("infoPersonaje");
+    const historiaScreen = document.getElementById("historiaScreen")
 
     // Mostrar personajes
     btnPersonajes.addEventListener("click", (e) => {
@@ -58,6 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
         listaPersonajes.style.display = "block";
         infoPersonaje.style.display = "none";
         infoPersonaje.innerHTML = "";
+        historiaScreen = "none";
     });
 
     // Volver a inicio
@@ -67,6 +69,16 @@ document.addEventListener("DOMContentLoaded", () => {
         personajesScreen.style.display = "none";
         infoPersonaje.style.display = "none";
         infoPersonaje.innerHTML = "";
+        historiaScreen = "none";
+    });
+
+    btnHistoria.addEventListener("click", (e) => {
+        e.preventDefault();
+        cajaInicio.style.display = "none";
+        personajesScreen.style.display = "none";
+        infoPersonaje.style.display = "none";
+        infoPersonaje.innerHTML = "";
+        historiaScreen = "block";
     });
 
     // Mostrar info personaje

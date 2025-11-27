@@ -10,73 +10,90 @@
 </head>
 
 <body>
+
+    <!-- MENÚ SUPERIOR -->
     <nav class="menu">
-        <a href="#inicio">Inicio</a>
+        <a href="#inicio" id="menuInicio">Inicio</a>
         <a href="#descripcion">Descripción</a>
         <a href="#carrusel">Galería</a>
-        <a href="#personajesScreen" id="menuPersonajes">Personajes</a>
+        <a href="#" id="menuPersonajes">Personajes</a>
         <a href="#footer">Contacto</a>
-
     </nav>
+
+
+    <!-- ========== PANTALLA PRINCIPAL ========== -->
     <div class="caja" id="inicio">
-        <h1 id="titulo">Las Sombras de Arkanis</h1>
 
-        <h2 id="subtitulo">¿De que trata?</h2>
+        <div id="contenidoPrincipal">
 
-        <p id="info">Las sombras de Arkanis es un proyecto que está en desarrollo por mi persona, el cual trata de un
-            videojuego estilo jrpg de batallas por turnos 2D</p>
+            <h1 id="titulo">Las Sombras de Arkanis</h1>
 
-        <div id="explicación" id="descripcion">
-            <div class="fila">
-                <p>
-                    Aunque solo será una DEMO podría llegar a ser más, mi intención con este proyecto es aplicar los
-                    conocimientos aprendidos tanto en el curso como en las prácticas, puesto que ya trabajé con unity
-                    decidí
-                    optar por otro motor grafico, godot, puesto que este utiliza el lenguaje de C#, lenguaje el cual ya
-                    tengo
-                    conocimiento
-                </p>
+            <h2 id="subtitulo">¿De qué trata?</h2>
 
-                <img src="./img/godotLogo.png" alt="">
-
-                <br>
-
-
-            </div>
-            <p>
-                La historia se basa en la campaña de el DND que estamos haciendo mis amigos y yo, por lo que lo que
-                iremos
-                viendo en la demo no es mas que dos de nuestros personajes en un pueblo, la interacción con el mismo,
-                una
-                mazmorra con dos tipos de enemigos y un jefe
+            <p id="info">
+                Las sombras de Arkanis es un proyecto que está en desarrollo por mi persona,
+                el cual trata de un videojuego estilo JRPG de batallas por turnos 2D.
             </p>
 
+            <div id="descripcion">
+                <div class="fila">
 
+                    <p>
+                        Aunque solo será una DEMO podría llegar a ser más, mi intención con
+                        este proyecto es aplicar los conocimientos aprendidos tanto en el curso
+                        como en las prácticas. Puesto que ya trabajé con Unity, decidí optar por
+                        otro motor gráfico, Godot, ya que este utiliza el lenguaje C#, lenguaje
+                        con el cual ya tengo conocimiento.
+                    </p>
 
-        </div>
-        <div class="carrusel" id="carrusel">
-            <button id="btnPrev">⟨</button>
+                    <img src="./img/godotLogo.png" alt="godot">
+                </div>
 
-            <img id="imgCarrusel" src="./img/portada.png" alt="carrusel">
+                <p>
+                    La historia se basa en la campaña de D&D que estamos haciendo mis amigos
+                    y yo. Lo que veremos en la demo no es más que dos de nuestros personajes
+                    en un pueblo, la interacción con el mismo, una mazmorra con dos tipos de
+                    enemigos y un jefe.
+                </p>
+            </div>
 
-            <button id="btnNext">⟩</button>
+            <!-- CARRUSEL -->
+            <div class="carrusel" id="carrusel">
+                <button id="btnPrev">⟨</button>
+                <img id="imgCarrusel" src="./img/portada.png" alt="carrusel">
+                <button id="btnNext">⟩</button>
+            </div>
+
         </div>
     </div>
 
+
+    <!-- ========== SECCIÓN PERSONAJES (OCULTA) ========== -->
     <div class="caja" id="personajesScreen" style="display:none;">
-    <h2>Personajes</h2>
-    <ul id="listaPersonajes">
-        <li data-info="Información del personaje 1">Personaje 1</li>
-        <li data-info="Información del personaje 2">Personaje 2</li>
-        <li data-info="Información del personaje 3">Personaje 3</li>
-    </ul>
-    <div id="infoPersonaje" style="margin-top:20px; color:white;"></div>
-</div>
+        <h2>Personajes</h2>
+
+        <!-- LISTA OCULTA / VISUALIZADA POR JS -->
+        <ul id="listaPersonajes" style="display:block;">
+            <li data-info="Un Enano barbaro con problemas de ira.">Titus&Nanus</li>
+            <li data-info="Un Warlock serio y justo con una lata sed de venganza">Urizen WoodNigths</li>
+            <li data-info="Un bardo medio elfo que no sabe tocar su lira">Pepe el Bardo</li>
+             <li data-info="Un tiffling que no está muy bien de la cabeza">Alimentacius Luna</li>
+            <li data-info="Un Gnomo que está obsesionado con el dinero e ir desnudo">Neton el Gnomo Teton</li>
+            <li data-info="Un Draconido dorado que escupe fuego y factos">Koldor el estoico</li>
+            <li data-info="Un hipopotamo parlanchin con unas defensas por las nubes (El y Koldor no son familia)">MotoMoto Estoico</li>
+        </ul>
+
+        <!-- INFORMACIÓN DEL PERSONAJE ELEGIDO -->
+        <div id="infoPersonaje" style="display:none; margin-top:20px; color:white;"></div>
+    </div>
 
 
+    <!-- PIE DE PÁGINA -->
     <footer class="pie-pagina" id="footer">
-        &copy; 2025 Las Sombras de Arkanis | Creado: 26/11/2025 | Autor:Francisco Javier Rodríguez Calero
+        &copy; 2025 Las Sombras de Arkanis | Creado: 26/11/2025 |
+        Autor: Francisco Javier Rodríguez Calero
     </footer>
+
 </body>
 
 </html>

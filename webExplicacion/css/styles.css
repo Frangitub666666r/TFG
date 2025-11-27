@@ -176,8 +176,28 @@ img {
     color: orange;
 }
 
+#listaPersonajes {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    text-align: center;
+}
+
+#listaPersonajes li {
+    cursor: pointer;
+    color: yellow;
+    font-size: 1.2rem;
+    margin: 10px 0;
+    transition: 0.3s;
+}
+
+#listaPersonajes li:hover {
+    color: orange;
+}
+
 #infoPersonaje {
-    background-color: rgba(255,255,255,0.1);
+    background-color: rgba(255,255,255,0.15);
     padding: 15px;
     border-radius: 10px;
+    color: white;
 }

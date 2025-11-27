@@ -45,6 +45,18 @@ body {
     color: rgb(255, 102, 0);
 }
 
+#historiaTitle {
+    color: rgb(255, 102, 0);
+    ;
+
+}
+
+#personajeTitle {
+    color: rgb(255, 102, 0);
+    ;
+
+}
+
 p {
     color: white;
 
@@ -165,6 +177,7 @@ img {
     /* suficiente espacio para menú fijo */
     min-height: 100vh;
 }
+
 #listaPersonajes li {
     cursor: pointer;
     padding: 5px 0;
@@ -196,7 +209,7 @@ img {
 }
 
 #infoPersonaje {
-    background-color: rgba(255,255,255,0.15);
+    background-color: rgba(255, 255, 255, 0.15);
     padding: 15px;
     border-radius: 10px;
     color: white;

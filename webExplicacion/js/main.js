@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
         listaPersonajes.style.display = "block";
         infoPersonaje.style.display = "none";
         infoPersonaje.innerHTML = "";
-        historiaScreen = "none";
+        historiaScreen.style.display = "none";
     });
 
     // Volver a inicio
@@ -69,16 +69,16 @@ document.addEventListener("DOMContentLoaded", () => {
         personajesScreen.style.display = "none";
         infoPersonaje.style.display = "none";
         infoPersonaje.innerHTML = "";
-        historiaScreen = "none";
+        historiaScreen.style.display = "none";
     });
-
+    // Mostrar la sinopsis
     btnHistoria.addEventListener("click", (e) => {
         e.preventDefault();
         cajaInicio.style.display = "none";
         personajesScreen.style.display = "none";
         infoPersonaje.style.display = "none";
         infoPersonaje.innerHTML = "";
-        historiaScreen = "block";
+        historiaScreen.style.display = "block";
     });
 
     // Mostrar info personaje

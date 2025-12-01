@@ -4,15 +4,15 @@ document.addEventListener("DOMContentLoaded", () => {
         "./img/portada.png",
         "./img/godotLogo.png",
         "../imagenes/sprites/spriteTitus/titus.png",
-         "../imagenes/sprites/spriteTitus/titus_avATK.png",
+        "../imagenes/sprites/spriteTitus/titus_avATK.png",
         "../imagenes/sprites/spriteTitus/titus_salATK.png",
         "../imagenes/sprites/spriteTitus/titus_golATK.png"
-       
+
     ];
 
     let indice = 0;
 
-    const imgCarrusel = document.getElementById("imgCarrusel");
+    const imgCarrusel = document.getElementById("img");
     const btnPrev = document.getElementById("btnPrev");
     const btnNext = document.getElementById("btnNext");
 
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const infoPersonaje = document.getElementById("infoPersonaje");
     const historiaScreen = document.getElementById("historiaScreen");
     const actualizacionesScreen = document.querySelector("#actualizacionesScreen")
-    
+
     // Mostrar personajes
     btnPersonajes.addEventListener("click", (e) => {
         e.preventDefault();
@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
         infoPersonaje.innerHTML = "";
         historiaScreen.style.display = "block";
         actualizacionesScreen.style.display = "none";
-        
+
     });
 
     // Mostrar actualizaciones

@@ -3,7 +3,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const imagenes = [
         "./img/portada.png",
         "./img/godotLogo.png",
-        "../imagenes/titus.png"
+        "../imagenes/sprites/spriteTitus/titus.png",
+         "../imagenes/sprites/spriteTitus/titus_avATK.png",
+        "../imagenes/sprites/spriteTitus/titus_salATK.png",
+        "../imagenes/sprites/spriteTitus/titus_golATK.png"
+       
     ];
 
     let indice = 0;
@@ -30,7 +34,6 @@ document.addEventListener("DOMContentLoaded", () => {
         mostrarImagen(indice);
     });
 
-    // Scroll suave
     document.querySelectorAll('.menu a').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -40,17 +43,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // =================================================
-    // PANTALLA: INICIO / HISTORIA / PERSONAJES
+    // PANTALLA: INICIO / HISTORIA / PERSONAJES / ACTUALIZACIONES
     // =================================================
     const btnPersonajes = document.getElementById("menuPersonajes");
     const btnInicio = document.querySelector("#menuInicio");
     const btnHistoria = document.querySelector("#menuHistoria")
+    const btnActualizaciones = document.querySelector("#menuActualizaciones")
     const cajaInicio = document.getElementById("inicio");
     const personajesScreen = document.getElementById("personajesScreen");
     const listaPersonajes = document.getElementById("listaPersonajes");
     const infoPersonaje = document.getElementById("infoPersonaje");
-    const historiaScreen = document.getElementById("historiaScreen")
-
+    const historiaScreen = document.getElementById("historiaScreen");
+    const actualizacionesScreen = document.querySelector("#actualizacionesScreen")
+    
     // Mostrar personajes
     btnPersonajes.addEventListener("click", (e) => {
         e.preventDefault();
@@ -60,6 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
         infoPersonaje.style.display = "none";
         infoPersonaje.innerHTML = "";
         historiaScreen.style.display = "none";
+        actualizacionesScreen.style.display = "none";
     });
 
     // Volver a inicio
@@ -70,6 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
         infoPersonaje.style.display = "none";
         infoPersonaje.innerHTML = "";
         historiaScreen.style.display = "none";
+        actualizacionesScreen.style.display = "none";
     });
     // Mostrar la sinopsis
     btnHistoria.addEventListener("click", (e) => {
@@ -79,7 +86,22 @@ document.addEventListener("DOMContentLoaded", () => {
         infoPersonaje.style.display = "none";
         infoPersonaje.innerHTML = "";
         historiaScreen.style.display = "block";
+        actualizacionesScreen.style.display = "none";
+        
     });
+
+    // Mostrar actualizaciones
+
+    btnActualizaciones.addEventListener("click", (e) => {
+        e.preventDefault();
+        cajaInicio.style.display = "none";
+        personajesScreen.style.display = "none";
+        infoPersonaje.style.display = "none";
+        infoPersonaje.innerHTML = "";
+        historiaScreen.style.display = "none";
+        actualizacionesScreen.style.display = "block";
+    });
+
 
     // Mostrar info personaje
     listaPersonajes.querySelectorAll("li").forEach(personaje => {

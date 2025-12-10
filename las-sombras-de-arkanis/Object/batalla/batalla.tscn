@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Texture2D" uid="uid://daqcsppstwbbb" path="res://Objetos/imagenes/EscenarioBosque.png" id="1_f3qml"]
+
+[node name="batalla" type="Node2D"]
+
+[node name="EscenarioBosque" type="Sprite2D" parent="."]
+position = Vector2(575.375, 318.25)
+scale = Vector2(0.75472003, 0.6323243)
+texture = ExtResource("1_f3qml")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(578, 321)
+
+[node name="Node2D" type="Node2D" parent="."]

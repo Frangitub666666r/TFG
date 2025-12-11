@@ -6,7 +6,12 @@ document.addEventListener("DOMContentLoaded", () => {
         "../imagenes/sprites/spriteTitus/titus.png",
         "../imagenes/sprites/spriteTitus/titus_avATK.png",
         "../imagenes/sprites/spriteTitus/titus_salATK.png",
-        "../imagenes/sprites/spriteTitus/titus_golATK.png"
+        "../imagenes/sprites/spriteTitus/titus_golATK.png",
+        "../imagenes/sprites/spriteTitus/titus_salATKV2.png",
+        "../imagenes/EscenarioBosque.png",
+        "../imagenes/sprites/Enemigos/goblin.png",
+        "../imagenes/sprites/Enemigos/Worg.png"
+
 
     ];
 
@@ -111,4 +116,44 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    // =================================================
+    // LÓGICA DEL FORMULARIO DE SUGERENCIAS
+    // =================================================
+    const formSugerencias = document.getElementById("formSugerencias");
+    const mensajeExito = document.getElementById("mensajeExito");
+    const btnEnviar = document.getElementById("btnEnviarSugerencia");
+
+    if (formSugerencias) {
+        formSugerencias.addEventListener("submit", (e) => {
+            e.preventDefault(); // Evita que la página se recargue
+
+            // 1. Simulación visual de envío
+            const textoOriginal = btnEnviar.innerText;
+            btnEnviar.innerText = "ENVIANDO...";
+            btnEnviar.disabled = true;
+            btnEnviar.style.backgroundColor = "#555"; // Gris mientras carga
+
+            // 2. Simular retardo de red (1.5 segundos)
+            setTimeout(() => {
+                // Aquí iría el código real para enviar a backend si lo tuvieras
+                // Por ahora, solo limpiamos y mostramos éxito
+                
+                formSugerencias.reset(); // Limpia el area de texto
+                
+                // Restaurar botón
+                btnEnviar.innerText = textoOriginal;
+                btnEnviar.disabled = false;
+                btnEnviar.style.backgroundColor = "rgb(255, 102, 0)";
+
+                // Mostrar mensaje de éxito
+                mensajeExito.style.display = "block";
+
+                // Ocultar mensaje de éxito después de 4 segundos
+                setTimeout(() => {
+                    mensajeExito.style.display = "none";
+                }, 4000);
+
+            }, 1500);
+        });
+    }
 });

@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5ofqoatj8emp"]
+
+[ext_resource type="Texture2D" uid="uid://m6pucjqtw7eg" path="res://Objetos/imagenes/sprites/SpriteTitus/Titus-removebg-preview.png" id="2_auk8u"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8s8xx"]
+radius = 24.0
+height = 134.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_auk8u"]
+atlas = ExtResource("2_auk8u")
+region = Rect2(0, 0, 464, 385)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_64l1g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_auk8u")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="personaje" type="CharacterBody2D"]
+motion_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(284, 209)
+shape = SubResource("CapsuleShape2D_8s8xx")
+
+[node name="titus" type="AnimatedSprite2D" parent="CollisionShape2D"]
+sprite_frames = SubResource("SpriteFrames_64l1g")
+animation = &"idle"

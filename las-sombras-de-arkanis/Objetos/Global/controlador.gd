@@ -1,7 +1,13 @@
 extends Node
-
+signal selecEnemigo()
 var turnoJugador : bool=true
-# Called when the node enters the scene tree for the first time.
+var menuAbierto : bool = true
+
+
 func cambiarTurno():
 	turnoJugador !=turnoJugador
+	
+func empezarAtaque():
+	menuAbierto=false
+	emit_signal("selecEnemigo")
 	

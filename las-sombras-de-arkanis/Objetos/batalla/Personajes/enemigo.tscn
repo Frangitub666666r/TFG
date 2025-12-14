@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://c132aulbh46x3"]
+
+[ext_resource type="Texture2D" uid="uid://dl4cqtmowjy84" path="res://Objetos/imagenes/sprites/Enemigos/goblin-removebg-preview.png" id="1_lblxu"]
+[ext_resource type="PackedScene" uid="uid://qx4kvoolvwl1" path="res://UI/Acciones.tscn" id="2_ovqr1"]
+[ext_resource type="Script" uid="uid://b1oooyki7g5pw" path="res://Objetos/batalla/Personajes/personaje.gd" id="3_utj6b"]
+[ext_resource type="Resource" uid="uid://bfo1h4pwkg4sd" path="res://Data/Jugador/Titus.tres" id="4_wr108"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fau6i"]
+radius = 24.0
+height = 134.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_utj6b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_lblxu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wr108"]
+
+[node name="Enemigo" type="CharacterBody2D"]
+script = ExtResource("3_utj6b")
+Data = ExtResource("4_wr108")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(284, 209)
+shape = SubResource("CapsuleShape2D_fau6i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
+sprite_frames = SubResource("SpriteFrames_utj6b")
+script = ExtResource("3_utj6b")
+Data = ExtResource("4_wr108")
+
+[node name="acciones" parent="CollisionShape2D/AnimatedSprite2D" instance=ExtResource("2_ovqr1")]
+anchors_preset = 0
+offset_left = -182.0
+offset_top = -233.0
+offset_right = -182.0
+offset_bottom = -233.0
+
+[node name="Panel" type="Panel" parent="CollisionShape2D/AnimatedSprite2D"]
+offset_left = -104.0
+offset_top = -139.0
+offset_right = 111.0
+offset_bottom = 146.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_wr108")
+metadata/_edit_use_anchors_ = true
+
+[node name="seleccionar" type="Polygon2D" parent="CollisionShape2D/AnimatedSprite2D"]
+visible = false
+position = Vector2(281, 12)
+color = Color(1, 0.35297427, 0.32602546, 1)
+offset = Vector2(-291, -74)
+polygon = PackedVector2Array(230, 44, 355, 44, 291, 123)

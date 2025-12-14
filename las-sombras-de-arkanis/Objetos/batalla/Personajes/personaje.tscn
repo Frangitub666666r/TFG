@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://b5ofqoatj8emp"]
+[gd_scene load_steps=8 format=3 uid="uid://b5ofqoatj8emp"]
 
+[ext_resource type="Script" uid="uid://b1oooyki7g5pw" path="res://Objetos/batalla/Personajes/personaje.gd" id="1_q3y37"]
 [ext_resource type="Texture2D" uid="uid://m6pucjqtw7eg" path="res://Objetos/imagenes/sprites/SpriteTitus/Titus-removebg-preview.png" id="2_auk8u"]
 [ext_resource type="PackedScene" uid="uid://qx4kvoolvwl1" path="res://UI/Acciones.tscn" id="2_qrkb1"]
 
@@ -26,6 +27,7 @@ animations = [{
 
 [node name="personaje" type="CharacterBody2D"]
 motion_mode = 1
+script = ExtResource("1_q3y37")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(284, 209)
@@ -49,6 +51,11 @@ offset_right = 388.0
 offset_bottom = 378.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_qrkb1")
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
+[node name="seleccionar" type="Polygon2D" parent="."]
+visible = false
+position = Vector2(281, 12)
+color = Color(1, 0.35297427, 0.32602546, 1)
+offset = Vector2(-291, -74)
+polygon = PackedVector2Array(230, 44, 355, 44, 291, 123)
 
 [connection signal="gui_input" from="Panel" to="acciones" method="_on_panel_gui_input"]

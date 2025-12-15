@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b5ofqoatj8emp"]
+[gd_scene load_steps=15 format=3 uid="uid://b5ofqoatj8emp"]
 
 [ext_resource type="Script" uid="uid://b1oooyki7g5pw" path="res://Objetos/batalla/Personajes/personaje.gd" id="1_q3y37"]
 [ext_resource type="Resource" uid="uid://bfo1h4pwkg4sd" path="res://Data/Jugador/Titus.tres" id="2_6hjqs"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cxu3plddp1lxa" path="res://Objetos/imagenes/sprites/SpriteTitus/Titus_avAtk-removebg-preview.png" id="3_v02oh"]
 [ext_resource type="Texture2D" uid="uid://dmo1wlxx5g66l" path="res://Objetos/imagenes/sprites/SpriteTitus/Titus_salAtkV2-removebg-preview.png" id="4_6c0i8"]
 [ext_resource type="Texture2D" uid="uid://dygrdhwrjuene" path="res://Objetos/imagenes/sprites/SpriteTitus/titus_golAtk-removebg-preview.png" id="6_xnqly"]
+[ext_resource type="PackedScene" uid="uid://b3cx2wanw235k" path="res://UI/ComponenteSalud.tscn" id="8_6c0i8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8s8xx"]
 radius = 24.0
@@ -22,7 +23,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_v02oh")
 }],
-"loop": true,
+"loop": false,
 "name": &"AtaK",
 "speed": 5.0
 }, {
@@ -30,7 +31,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("4_6c0i8")
 }],
-"loop": true,
+"loop": false,
 "name": &"Salt",
 "speed": 5.0
 }, {
@@ -38,7 +39,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_auk8u")
 }],
-"loop": true,
+"loop": false,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -53,6 +54,16 @@ animations = [{
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qrkb1"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6c0i8"]
+bg_color = Color(0.22745098, 0.22745098, 0.22745098, 0.57254905)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xnqly"]
+bg_color = Color(0, 0.93333334, 0.17254902, 1)
+
 [node name="personaje" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_q3y37")
@@ -63,9 +74,9 @@ position = Vector2(284, 209)
 shape = SubResource("CapsuleShape2D_8s8xx")
 
 [node name="titus" type="AnimatedSprite2D" parent="."]
-position = Vector2(287, 214)
+position = Vector2(289, 215)
 sprite_frames = SubResource("SpriteFrames_64l1g")
-animation = &"impact"
+animation = &"AtaK"
 
 [node name="acciones" parent="." instance=ExtResource("2_qrkb1")]
 offset_left = 95.0
@@ -82,10 +93,24 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_qrkb1")
 
 [node name="seleccionar" type="Polygon2D" parent="."]
 visible = false
-position = Vector2(281, 12)
+position = Vector2(289, 4)
 color = Color(1, 0.35297427, 0.32602546, 1)
 offset = Vector2(-291, -74)
 polygon = PackedVector2Array(230, 44, 355, 44, 291, 123)
 
+[node name="ComponenteSalud" parent="." node_paths=PackedStringArray("SaludBar") instance=ExtResource("8_6c0i8")]
+SaludBar = NodePath("../salud")
+
+[node name="salud" type="ProgressBar" parent="."]
+offset_left = 153.0
+offset_top = 67.0
+offset_right = 417.0
+offset_bottom = 94.0
+theme_override_styles/background = SubResource("StyleBoxFlat_6c0i8")
+theme_override_styles/fill = SubResource("StyleBoxFlat_xnqly")
+max_value = 1.0
+show_percentage = false
+
 [connection signal="animation_finished" from="titus" to="." method="_on_titus_animation_finished"]
+[connection signal="animation_looped" from="titus" to="." method="_on_titus_animation_looped"]
 [connection signal="gui_input" from="Panel" to="." method="_on_panel_gui_input"]

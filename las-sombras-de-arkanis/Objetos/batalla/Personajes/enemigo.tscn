@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://c132aulbh46x3"]
+[gd_scene load_steps=11 format=3 uid="uid://c132aulbh46x3"]
 
 [ext_resource type="Texture2D" uid="uid://dl4cqtmowjy84" path="res://Objetos/imagenes/sprites/Enemigos/goblin-removebg-preview.png" id="1_lblxu"]
 [ext_resource type="Resource" uid="uid://btjw6ty2fohl4" path="res://Data/Jugador/Enemigo.tres" id="2_fau6i"]
 [ext_resource type="PackedScene" uid="uid://qx4kvoolvwl1" path="res://UI/Acciones.tscn" id="2_ovqr1"]
 [ext_resource type="Script" uid="uid://b1oooyki7g5pw" path="res://Objetos/batalla/Personajes/personaje.gd" id="3_utj6b"]
+[ext_resource type="PackedScene" uid="uid://b3cx2wanw235k" path="res://UI/ComponenteSalud.tscn" id="5_utj6b"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fau6i"]
 radius = 24.0
@@ -22,6 +23,16 @@ animations = [{
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wr108"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_utj6b"]
+bg_color = Color(0.22745098, 0.22745098, 0.22745098, 0.57254905)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wr108"]
+bg_color = Color(0, 0.93333334, 0.17254902, 1)
+
 [node name="Enemigo" type="CharacterBody2D"]
 script = ExtResource("3_utj6b")
 Data = ExtResource("2_fau6i")
@@ -30,7 +41,7 @@ Data = ExtResource("2_fau6i")
 position = Vector2(284, 209)
 shape = SubResource("CapsuleShape2D_fau6i")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="goblin" type="AnimatedSprite2D" parent="."]
 position = Vector2(284, 209)
 sprite_frames = SubResource("SpriteFrames_utj6b")
 animation = &"idle"
@@ -51,9 +62,22 @@ metadata/_edit_use_anchors_ = true
 
 [node name="seleccionar" type="Polygon2D" parent="."]
 visible = false
-position = Vector2(273, 2)
+position = Vector2(277, -43)
 color = Color(1, 0.35297427, 0.32602546, 1)
 offset = Vector2(-291, -74)
 polygon = PackedVector2Array(230, 44, 355, 44, 291, 123)
+
+[node name="ComponenteSalud" parent="." node_paths=PackedStringArray("SaludBar") instance=ExtResource("5_utj6b")]
+SaludBar = NodePath("../salud")
+
+[node name="salud" type="ProgressBar" parent="."]
+offset_left = 144.0
+offset_top = 31.0
+offset_right = 408.0
+offset_bottom = 58.0
+theme_override_styles/background = SubResource("StyleBoxFlat_utj6b")
+theme_override_styles/fill = SubResource("StyleBoxFlat_wr108")
+max_value = 1.0
+show_percentage = false
 
 [connection signal="gui_input" from="Panel" to="." method="_on_panel_gui_input"]

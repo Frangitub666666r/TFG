@@ -9,8 +9,22 @@ var menuAbierto : bool = true
 var pSelecionado
 var pObjetivo
 
+var enemigos = []
+var turnoEnemigo: int =0
+var jugadores = []
+
+
+func obtener_personajes():
+	
+	enemigos = get_tree().get_nodes_in_group("Enemigo")
+	jugadores = get_tree().get_nodes_in_group("jugador")
+	
+	print("Enemigos encontrados:", enemigos.size())
+	print("Jugadores encontrados:", jugadores.size())
 func cambiarTurno():
-	turnoJugador = not turnoJugador
+	turnoJugador = !turnoJugador
+	if turnoJugador==false:
+		iniciarTurnoEnemigo()
 	
 func empezarAtaque():
 	menuAbierto = false
@@ -25,3 +39,11 @@ func establecerEnemigo(personaje):
 func iniciarAtaque():
 	emit_signal("ataqueIniciado")
 	pSelecionado.atacarPersonaje(pObjetivo)
+
+func iniciarTurnoEnemigo ():
+	var enemigo_actual = enemigos[turnoEnemigo]
+	establecerPersonaje(enemigo_actual)
+	establecerEnemigo(jugadores.pick_random())
+	iniciarAtaque()
+	cambiarTurno()
+	

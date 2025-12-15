@@ -7,17 +7,22 @@ const VELOCIDAD = 300.0
 
 func _ready() -> void:
 	if Data and Data.jugador == false:
-		
-		Controlador.selecEnemigo.connect(mostrar_seleccion)
+		Controlador.connect("selecEnemigo",mostrar_seleccion)
+		Controlador.connect("ataqueIniciado", ocultarSeleccion)
 
-func _on_panel_gui_input(event: InputEvent):
+
+func _on_panel_gui_input(event):
 
 	if Data.jugador:
-		if Input.is_action_just_pressed("click_izquierdo" , mostrar_seleccion()) and Controlador.abrirMenu and Controlador.turnoJugador:
+		if Input.is_action_just_pressed("click_izquierdo") and Controlador.menuAbierto and Controlador.menuAbierto:
 			$acciones.abrirMenu()
 	else:
-		if $seleccionar.visible:
+		if Input.is_action_just_pressed("click_izquierdo") and $seleccionar.visible:
 			Controlador.establecerEnemigo(self)
+			Controlador.iniciarAtaque()
 
 func mostrar_seleccion():
 	$seleccionar.visible = true
+	
+func ocultarSeleccion():
+		$seleccionar.visible = false

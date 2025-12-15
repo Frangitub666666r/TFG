@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://b5ofqoatj8emp"]
+[gd_scene load_steps=9 format=3 uid="uid://b5ofqoatj8emp"]
 
 [ext_resource type="Script" uid="uid://b1oooyki7g5pw" path="res://Objetos/batalla/Personajes/personaje.gd" id="1_q3y37"]
+[ext_resource type="Resource" uid="uid://bfo1h4pwkg4sd" path="res://Data/Jugador/Titus.tres" id="2_6hjqs"]
 [ext_resource type="Texture2D" uid="uid://m6pucjqtw7eg" path="res://Objetos/imagenes/sprites/SpriteTitus/Titus-removebg-preview.png" id="2_auk8u"]
 [ext_resource type="PackedScene" uid="uid://qx4kvoolvwl1" path="res://UI/Acciones.tscn" id="2_qrkb1"]
 
@@ -28,6 +29,7 @@ animations = [{
 [node name="personaje" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_q3y37")
+Data = ExtResource("2_6hjqs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(284, 209)
@@ -58,4 +60,4 @@ color = Color(1, 0.35297427, 0.32602546, 1)
 offset = Vector2(-291, -74)
 polygon = PackedVector2Array(230, 44, 355, 44, 291, 123)
 
-[connection signal="gui_input" from="Panel" to="acciones" method="_on_panel_gui_input"]
+[connection signal="gui_input" from="Panel" to="." method="_on_panel_gui_input"]

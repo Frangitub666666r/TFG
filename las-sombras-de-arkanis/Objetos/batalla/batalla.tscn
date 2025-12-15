@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bux78eub8ccep"]
+[gd_scene load_steps=4 format=3 uid="uid://bux78eub8ccep"]
 
 [ext_resource type="Texture2D" uid="uid://daqcsppstwbbb" path="res://Objetos/imagenes/EscenarioBosque.png" id="1_f3qml"]
 [ext_resource type="PackedScene" uid="uid://b5ofqoatj8emp" path="res://Objetos/batalla/Personajes/personaje.tscn" id="2_sokqv"]
+[ext_resource type="PackedScene" uid="uid://c132aulbh46x3" path="res://Objetos/batalla/Personajes/enemigo.tscn" id="3_rwjhb"]
 
 [node name="batalla" type="Node2D"]
 
@@ -19,3 +20,7 @@ position = Vector2(-29, -68)
 [node name="personaje" parent="Node2D" instance=ExtResource("2_sokqv")]
 position = Vector2(54, 273)
 scale = Vector2(0.7, 0.7)
+
+[node name="Enemigo" parent="Node2D" instance=ExtResource("3_rwjhb")]
+position = Vector2(908.00006, 375)
+scale = Vector2(0.27310383, 0.28912252)

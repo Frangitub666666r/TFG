@@ -1,25 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://5q2d0h3cq7yk"]
+[gd_scene load_steps=3 format=3 uid="uid://5q2d0h3cq7yk"]
 
 [ext_resource type="Texture2D" uid="uid://8pb32twd1hmr" path="res://Objetos/imagenes/portada.png" id="1_4r23e"]
+[ext_resource type="Script" uid="uid://y3j4eplmr58f" path="res://Inicio/inicio.gd" id="1_m2aml"]
 
 [node name="InicioJuego" type="Node2D"]
+script = ExtResource("1_m2aml")
 
 [node name="Portada" type="Sprite2D" parent="."]
 position = Vector2(606.00006, 320.00003)
 scale = Vector2(0.546875, 0.41796878)
 texture = ExtResource("1_4r23e")
 
-[node name="Button" type="Button" parent="."]
+[node name="Iniciar" type="Button" parent="."]
 offset_left = 483.0
 offset_top = 439.0
 offset_right = 746.0
 offset_bottom = 492.0
 text = "INICIAR"
 
-[node name="Button2" type="Button" parent="."]
+[node name="salir" type="Button" parent="."]
 offset_left = 483.0
 offset_top = 501.0
 offset_right = 746.0
 offset_bottom = 554.0
 text = "SALIR
 "
+
+[connection signal="button_down" from="Iniciar" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="salir" to="." method="_on_salir_button_down"]

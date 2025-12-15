@@ -3,6 +3,8 @@ extends Control
 
 func _ready() -> void:
 	cerrarMenu()
+
+
 func abrirMenu():
 	visible=true
 
@@ -26,4 +28,5 @@ func _on_defender_button_down() -> void:
 
 func _on_atacar_button_down() -> void:
 	cerrarMenu()
+	Controlador.establecerPersonaje(self)
 	print("Atacando....")

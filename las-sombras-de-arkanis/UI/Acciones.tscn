@@ -4,6 +4,7 @@
 
 [node name="acciones" type="Control"]
 layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_gxia2")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]

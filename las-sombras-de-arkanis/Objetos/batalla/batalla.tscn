@@ -1,13 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://bux78eub8ccep"]
+[gd_scene load_steps=5 format=3 uid="uid://bux78eub8ccep"]
 
 [ext_resource type="Texture2D" uid="uid://daqcsppstwbbb" path="res://Objetos/imagenes/EscenarioBosque.png" id="1_f3qml"]
 [ext_resource type="PackedScene" uid="uid://b5ofqoatj8emp" path="res://Objetos/batalla/Personajes/personaje.tscn" id="2_sokqv"]
+[ext_resource type="PackedScene" uid="uid://c132aulbh46x3" path="res://Objetos/batalla/Personajes/enemigo.tscn" id="3_rwjhb"]
+[ext_resource type="PackedScene" uid="uid://b3cx2wanw235k" path="res://UI/HUD.tscn" id="4_evbrl"]
 
 [node name="batalla" type="Node2D"]
 
 [node name="EscenarioBosque" type="Sprite2D" parent="."]
-position = Vector2(575.375, 318.25)
-scale = Vector2(0.75472003, 0.6323243)
+position = Vector2(582, 325)
+scale = Vector2(0.8319072, 0.74256927)
 texture = ExtResource("1_f3qml")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -17,5 +19,13 @@ position = Vector2(573, 324)
 position = Vector2(-29, -68)
 
 [node name="personaje" parent="Node2D" instance=ExtResource("2_sokqv")]
-position = Vector2(47.000008, 264)
+position = Vector2(54, 300)
 scale = Vector2(0.7, 0.7)
+
+[node name="Enemigo" parent="Node2D" instance=ExtResource("3_rwjhb")]
+position = Vector2(853, 300)
+scale = Vector2(0.4, 0.434)
+
+[node name="CanvasLayer" parent="Node2D" instance=ExtResource("4_evbrl")]
+offset = Vector2(2, 2)
+transform = Transform2D(1, 0, 0, 1, 2, 2)

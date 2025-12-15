@@ -24,3 +24,4 @@ func establecerEnemigo(personaje):
 
 func iniciarAtaque():
 	emit_signal("ataqueIniciado")
+	pSelecionado.atacarPersonaje(pObjetivo)

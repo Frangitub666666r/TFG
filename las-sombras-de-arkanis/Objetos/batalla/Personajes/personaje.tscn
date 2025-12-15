@@ -1,9 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://b5ofqoatj8emp"]
+[gd_scene load_steps=12 format=3 uid="uid://b5ofqoatj8emp"]
 
 [ext_resource type="Script" uid="uid://b1oooyki7g5pw" path="res://Objetos/batalla/Personajes/personaje.gd" id="1_q3y37"]
 [ext_resource type="Resource" uid="uid://bfo1h4pwkg4sd" path="res://Data/Jugador/Titus.tres" id="2_6hjqs"]
 [ext_resource type="Texture2D" uid="uid://m6pucjqtw7eg" path="res://Objetos/imagenes/sprites/SpriteTitus/Titus-removebg-preview.png" id="2_auk8u"]
 [ext_resource type="PackedScene" uid="uid://qx4kvoolvwl1" path="res://UI/Acciones.tscn" id="2_qrkb1"]
+[ext_resource type="Texture2D" uid="uid://cxu3plddp1lxa" path="res://Objetos/imagenes/sprites/SpriteTitus/Titus_avAtk-removebg-preview.png" id="3_v02oh"]
+[ext_resource type="Texture2D" uid="uid://dmo1wlxx5g66l" path="res://Objetos/imagenes/sprites/SpriteTitus/Titus_salAtkV2-removebg-preview.png" id="4_6c0i8"]
+[ext_resource type="Texture2D" uid="uid://dygrdhwrjuene" path="res://Objetos/imagenes/sprites/SpriteTitus/titus_golAtk-removebg-preview.png" id="6_xnqly"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8s8xx"]
 radius = 24.0
@@ -17,10 +20,34 @@ region = Rect2(0, 0, 464, 385)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("3_v02oh")
+}],
+"loop": true,
+"name": &"AtaK",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_6c0i8")
+}],
+"loop": true,
+"name": &"Salt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_auk8u")
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_xnqly")
+}],
+"loop": true,
+"name": &"impact",
 "speed": 5.0
 }]
 
@@ -35,12 +62,12 @@ Data = ExtResource("2_6hjqs")
 position = Vector2(284, 209)
 shape = SubResource("CapsuleShape2D_8s8xx")
 
-[node name="titus" type="AnimatedSprite2D" parent="CollisionShape2D"]
+[node name="titus" type="AnimatedSprite2D" parent="."]
+position = Vector2(287, 214)
 sprite_frames = SubResource("SpriteFrames_64l1g")
-animation = &"idle"
+animation = &"impact"
 
 [node name="acciones" parent="." instance=ExtResource("2_qrkb1")]
-anchors_preset = 0
 offset_left = 95.0
 offset_top = -1.0
 offset_right = 95.0
@@ -60,4 +87,5 @@ color = Color(1, 0.35297427, 0.32602546, 1)
 offset = Vector2(-291, -74)
 polygon = PackedVector2Array(230, 44, 355, 44, 291, 123)
 
+[connection signal="animation_finished" from="titus" to="." method="_on_titus_animation_finished"]
 [connection signal="gui_input" from="Panel" to="." method="_on_panel_gui_input"]

@@ -16,7 +16,7 @@ animations = [{
 "texture": ExtResource("1_lblxu")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle",
 "speed": 5.0
 }]
 
@@ -30,27 +30,30 @@ Data = ExtResource("2_fau6i")
 position = Vector2(284, 209)
 shape = SubResource("CapsuleShape2D_fau6i")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(284, 209)
 sprite_frames = SubResource("SpriteFrames_utj6b")
+animation = &"idle"
 
-[node name="acciones" parent="CollisionShape2D/AnimatedSprite2D" instance=ExtResource("2_ovqr1")]
-anchors_preset = 0
-offset_left = -182.0
-offset_top = -233.0
-offset_right = -182.0
-offset_bottom = -233.0
+[node name="acciones" parent="." instance=ExtResource("2_ovqr1")]
+offset_left = 102.0
+offset_top = -24.0
+offset_right = 102.0
+offset_bottom = -24.0
 
-[node name="Panel" type="Panel" parent="CollisionShape2D/AnimatedSprite2D"]
-offset_left = -104.0
-offset_top = -139.0
-offset_right = 111.0
-offset_bottom = 146.0
+[node name="Panel" type="Panel" parent="."]
+offset_left = 180.0
+offset_top = 70.0
+offset_right = 395.0
+offset_bottom = 355.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_wr108")
 metadata/_edit_use_anchors_ = true
 
-[node name="seleccionar" type="Polygon2D" parent="CollisionShape2D/AnimatedSprite2D"]
+[node name="seleccionar" type="Polygon2D" parent="."]
 visible = false
-position = Vector2(281, 12)
+position = Vector2(273, 2)
 color = Color(1, 0.35297427, 0.32602546, 1)
 offset = Vector2(-291, -74)
 polygon = PackedVector2Array(230, 44, 355, 44, 291, 123)
+
+[connection signal="gui_input" from="Panel" to="." method="_on_panel_gui_input"]

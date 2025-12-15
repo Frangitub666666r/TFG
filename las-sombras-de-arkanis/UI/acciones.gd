@@ -28,5 +28,5 @@ func _on_defender_button_down() -> void:
 
 func _on_atacar_button_down() -> void:
 	cerrarMenu()
-	Controlador.establecerPersonaje(self)
+	Controlador.empezarAtaque()
 	print("Atacando....")

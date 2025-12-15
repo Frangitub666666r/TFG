@@ -4,9 +4,9 @@ signal salud_cambiada(nueva_salud: float)
 @export var Data : PersonajeData 
 @onready var componente_salud: Node = $ComponenteSalud
 
-@onready var goblin: AnimatedSprite2D = $goblin
 
-@onready var animacion: AnimatedSprite2D = $titus
+
+@onready var animacion: AnimatedSprite2D = $animacion
 var personaje_Objetivo
 var atacando: bool= false
 const VELOCIDAD = 700.0
@@ -19,10 +19,9 @@ var regresarInicio : bool = false
 func _ready() -> void:
 	posInicial = global_position
 	
-	if Data.jugador == true:
-		animacion.play("idle")
-	else:
-		goblin.play("idle")
+
+	animacion.play("idle")
+	
 	componente_salud.saludACTUAL = Data.salud
 	componente_salud.saludMAX = Data.salud
 	componente_salud.actualizarProgessBAR()
@@ -31,7 +30,7 @@ func _ready() -> void:
 		Controlador.connect("selecEnemigo",mostrar_seleccion)
 		Controlador.connect("ataqueIniciado", ocultarSeleccion)
 	else:
-		add_to_group("jugador")
+		add_to_group("Jugador")
 
 
 func _on_panel_gui_input(event):

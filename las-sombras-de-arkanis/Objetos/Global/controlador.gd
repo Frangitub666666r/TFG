@@ -17,11 +17,10 @@ var jugadores = []
 func obtener_personajes():
 	
 	enemigos = get_tree().get_nodes_in_group("Enemigo")
-	jugadores = get_tree().get_nodes_in_group("jugador")
-	
-	print("Enemigos encontrados:", enemigos.size())
-	print("Jugadores encontrados:", jugadores.size())
+	jugadores = get_tree().get_nodes_in_group("Jugador")
+
 func cambiarTurno():
+	obtener_personajes()
 	turnoJugador = !turnoJugador
 	if turnoJugador==false:
 		iniciarTurnoEnemigo()
@@ -41,6 +40,15 @@ func iniciarAtaque():
 	pSelecionado.atacarPersonaje(pObjetivo)
 
 func iniciarTurnoEnemigo ():
+	if enemigos.is_empty():
+		print("Batalla terminada: No quedan enemigos.")
+		
+		return
+		
+
+	turnoEnemigo = turnoEnemigo % enemigos.size() 
+	
+	# Ahora accedemos al enemigo de forma segura
 	var enemigo_actual = enemigos[turnoEnemigo]
 	establecerPersonaje(enemigo_actual)
 	establecerEnemigo(jugadores.pick_random())

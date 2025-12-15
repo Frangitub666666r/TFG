@@ -28,5 +28,3 @@ position = Vector2(853, 300)
 scale = Vector2(0.4, 0.434)
 
 [node name="IniciarMundo" type="Timer" parent="."]
-
-[connection signal="timeout" from="IniciarMundo" to="." method="_on_iniciar_mundo_timeout"]

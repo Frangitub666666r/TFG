@@ -6,6 +6,8 @@ func _ready() -> void:
 
 
 func abrirMenu():
+	for p in get_tree().get_nodes_in_group("Jugador"):
+		p.get_node("acciones").cerrarMenu()
 	visible=true
 
 func cerrarMenu():
@@ -23,6 +25,7 @@ func _on_habilidades_button_down() -> void:
 
 func _on_defender_button_down() -> void:
 	cerrarMenu()
+	Controlador.defenderPersonaje()
 	print("Defendiendo....")
 
 

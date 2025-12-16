@@ -8,6 +8,7 @@ signal salud_cambiada(nueva_salud: float)
 var personaje_Objetivo
 var atacando: bool = false
 const VELOCIDAD = 700.0
+var defendiendo: bool = false
 
 var posInicial : Vector2
 var regresarInicio : bool = false 
@@ -19,6 +20,7 @@ func _ready() -> void:
 	
 	componente_salud.saludACTUAL = Data.salud
 	componente_salud.saludMAX = Data.salud
+	componente_salud.armadura = Data.armadura 
 	componente_salud.actualizarProgessBAR()
 	if Data.jugador == false:
 		add_to_group("Enemigo")
@@ -29,6 +31,8 @@ func _ready() -> void:
 
 
 func _on_panel_gui_input(event):
+	if componente_salud.sinSalud or Controlador.Fin:
+		return
 	if Data.jugador:
 		if Input.is_action_just_pressed("click_izquierdo") and Controlador.menuAbierto and Controlador.turnoJugador:
 			$acciones.abrirMenu()
@@ -40,6 +44,8 @@ func _on_panel_gui_input(event):
 
 
 func _physics_process(delta: float) -> void:
+	if componente_salud.sinSalud or Controlador.Fin:
+		return
 	# --- Lógica de Ataque y Persecución ---
 	if personaje_Objetivo and atacando == false:
 		var distancia = global_position.distance_to(personaje_Objetivo.global_position)
@@ -77,6 +83,7 @@ func _physics_process(delta: float) -> void:
 			animacion.play("idle")
 			Controlador.cambiarTurno()
 			Controlador.menuAbierto = true
+		
 			
 	else:
 		velocity = Vector2.ZERO
@@ -86,6 +93,11 @@ func _physics_process(delta: float) -> void:
 func atacarPersonaje(target):
 	personaje_Objetivo = target
 
+func defenserse():
+	componente_salud.armadura = Data.armadura * 2
+	defendiendo=true
+	Controlador.cambiarTurno()
+	Controlador.menuAbierto = true
 
 func mostrar_seleccion():
 	$seleccionar.visible = true
@@ -106,8 +118,24 @@ func _on_animacion_animation_looped() -> void:
 	if animacion.animation == "impact":
 		print("Hacer daño al personaje")
 		
-		personaje_Objetivo.componente_salud.recibirDaño(Data.daño)
-		
+		personaje_Objetivo.componente_salud.recibirDaño(Data.daño, Data.probabilidadCritico, Data.Mult)
 		personaje_Objetivo = null
 		atacando = false
 		regresarInicio = true
+
+
+func _on_componente_salud_daño_recibido() -> void:
+	defendiendo= false
+	componente_salud.armadura = Data.armadura 
+
+func _on_componente_salud_salud_cero() -> void:
+	$salud.visible=false
+	if Data.jugador:
+		remove_from_group("Jugador")
+		queue_free()
+	else:
+		remove_from_group("Enemigo")
+		await get_tree().create_timer(1).timeout
+		queue_free()
+	Controlador.obtener_personajes()
+	

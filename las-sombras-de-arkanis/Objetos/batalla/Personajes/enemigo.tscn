@@ -106,3 +106,5 @@ show_percentage = false
 
 [connection signal="animation_looped" from="animacion" to="." method="_on_animacion_animation_looped"]
 [connection signal="gui_input" from="Panel" to="." method="_on_panel_gui_input"]
+[connection signal="daño_recibido" from="ComponenteSalud" to="." method="_on_componente_salud_daño_recibido"]
+[connection signal="saludCero" from="ComponenteSalud" to="." method="_on_componente_salud_salud_cero"]

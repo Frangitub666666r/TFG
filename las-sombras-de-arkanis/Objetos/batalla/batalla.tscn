@@ -27,8 +27,17 @@ scale = Vector2(0.7, 0.7)
 position = Vector2(853, 300)
 scale = Vector2(0.4, 0.434)
 
-[node name="Enemigo" parent="Node2D/Enemigo" instance=ExtResource("3_rwjhb")]
-position = Vector2(55.000183, 435.48383)
-scale = Vector2(1.0591294, 0.9748742)
+[node name="Enemigo2" parent="Node2D" instance=ExtResource("3_rwjhb")]
+position = Vector2(875.00006, 488.99997)
+scale = Vector2(0.42365175, 0.42309538)
 
 [node name="IniciarMundo" type="Timer" parent="."]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 544.0
+offset_top = 87.0
+offset_right = 683.0
+offset_bottom = 123.0
+text = "TURNO: JUGADOR"
+
+[connection signal="timeout" from="IniciarMundo" to="." method="_on_iniciar_mundo_timeout"]

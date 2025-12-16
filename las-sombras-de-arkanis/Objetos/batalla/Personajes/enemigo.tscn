@@ -16,15 +16,23 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("1_lblxu")
 }],
-"loop": true,
-"name": &"ataK",
+"loop": false,
+"name": &"AtaK",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_lblxu")
 }],
-"loop": true,
+"loop": false,
+"name": &"Salt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_lblxu")
+}],
+"loop": false,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -34,14 +42,6 @@ animations = [{
 }],
 "loop": true,
 "name": &"impact",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_lblxu")
-}],
-"loop": true,
-"name": &"salt",
 "speed": 5.0
 }]
 
@@ -68,7 +68,7 @@ shape = SubResource("CapsuleShape2D_fau6i")
 [node name="animacion" type="AnimatedSprite2D" parent="."]
 position = Vector2(284, 209)
 sprite_frames = SubResource("SpriteFrames_utj6b")
-animation = &"salt"
+animation = &"impact"
 
 [node name="acciones" parent="." instance=ExtResource("2_ovqr1")]
 offset_left = 102.0
@@ -104,4 +104,5 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_wr108")
 max_value = 1.0
 show_percentage = false
 
+[connection signal="animation_looped" from="animacion" to="." method="_on_animacion_animation_looped"]
 [connection signal="gui_input" from="Panel" to="." method="_on_panel_gui_input"]

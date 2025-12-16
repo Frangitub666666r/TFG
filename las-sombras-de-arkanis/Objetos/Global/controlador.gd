@@ -1,6 +1,5 @@
 extends Node
 
-# Define la señal para que otros scripts puedan escucharla
 signal selecEnemigo
 signal ataqueIniciado
 var turnoJugador : bool = true
@@ -20,6 +19,7 @@ func obtener_personajes():
 	jugadores = get_tree().get_nodes_in_group("Jugador")
 
 func cambiarTurno():
+	await get_tree().create_timer(1).timeout
 	obtener_personajes()
 	turnoJugador = !turnoJugador
 	if turnoJugador==false:
@@ -53,5 +53,3 @@ func iniciarTurnoEnemigo ():
 	establecerPersonaje(enemigo_actual)
 	establecerEnemigo(jugadores.pick_random())
 	iniciarAtaque()
-	cambiarTurno()
-	
